@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>After-Market</title>
+    <meta
+      name="description"
+      content="GladMinds After-Market helps turn downtime into uptime with always-on service and enhanced customer experience."
+    />
+    <meta
+      name="keywords"
+      content="GladMinds, After-Market, uptime, downtime, customer experience, after-sales service, industry leaders"
+    />
+    <link rel="stylesheet" href="./src/output.css" />
+    <style>
+      .font-roboto-sans {
+        font-family: "Roboto", sans-serif;
+      }
+      
+      /* Dropdown functionality */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 12rem;
+        background-color: white;
+        border-radius: 0.375rem;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        z-index: 50;
+      }
+      
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      
+      .dropdown-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #1f2937;
+        text-decoration: none;
+      }
+      
+      .dropdown-menu a:hover {
+        background-color: #eff6ff;
+      }
+      
+      /* Custom gradient with backdrop blur */
+      .glass-effect {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) -0.68%, rgba(255, 255, 255, 0.12) 26.74%, rgba(255, 255, 255, 0.13) 69.55%, rgba(255, 255, 255, 0.00) 99.37%, rgba(255, 255, 255, 0.00) 99.37%, rgba(255, 255, 255, 0.00) 99.37%);
+        backdrop-filter: blur(98.000278px);
+      }
+    </style>
+  </head>
+  <body class="font-roboto-sans">
+    <!-- Header -->
+    <header class="bg-blue-900">
+      <nav class="container glass-effect max-w-max mx-auto px-6 py-4 ">
+        <div class="flex justify-between gap-19 max-w-max items-center pl-5 pr-2 h-16 border border-white rounded-full">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <img src="assets/logo/dark_theme.svg" alt="GladMinds" class="mt-2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="text-white text-2xl font-bold" style="display:none;">GLADMINDS</div>
+          </div>
+          
+          <!-- Navigation Items -->
+          <div class="flex items-center space-x-8">
+            <!-- Option-1 (Direct Route) -->
+            <a href="#option1" class="text-white hover:text-gray-200 transition">
+              Option-1
+            </a>
+            
+            <!-- Option-2 (Dropdown) -->
+            <div class="relative dropdown">
+              <button class="text-white hover:text-gray-200 transition flex items-center">
+                Option-2
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="dropdown-menu">
+                <a href="#option2-1">Sub Option 2.1</a>
+                <a href="#option2-2">Sub Option 2.2</a>
+                <a href="#option2-3">Sub Option 2.3</a>
+              </div>
+            </div>
+            
+            <!-- Option-3 (Dropdown) -->
+            <div class="relative dropdown">
+              <button class="text-white hover:text-gray-200 transition flex items-center">
+                Option-3
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="dropdown-menu">
+                <a href="#option3-1">Sub Option 3.1</a>
+                <a href="#option3-2">Sub Option 3.2</a>
+                <a href="#option3-3">Sub Option 3.3</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Buttons -->
+          <div class="flex items-center space-x-4">
+            <button class="text-white border border-white px-6 py-2 rounded-full hover:bg-white hover:text-blue-900 transition">
+              SIGN IN
+            </button>
+            <button class="bg-white text-blue-900 px-6 py-2 rounded-full hover:bg-gray-100 transition">
+              SIGN IN
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Welcome to AM Landing Page
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Build amazing experiences with our modern, responsive landing page
+          template powered by Tailwind CSS.
+        </p>
+        <div class="flex justify-center gap-4">
+          <button
+            class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition text-lg font-semibold"
+          >
+            Get Started
+          </button>
+          <button
+            class="bg-white text-blue-600 px-8 py-3 rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition text-lg font-semibold"
+          >
+            Learn More
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
