@@ -19,6 +19,10 @@
       }
       
       /* Dropdown functionality */
+      .dropdown {
+        position: relative; /* Ensure the dropdown is positioned correctly */
+      }
+
       .dropdown-menu {
         display: none;
         position: absolute;
@@ -26,18 +30,16 @@
         margin-top: 0.5rem;
         width: 12rem;
         background-color: white;
-        border-radius: 0.375rem;
+        border-radius: 10px;
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
         z-index: 50;
-      }
-      
-      .dropdown:hover .dropdown-menu {
-        display: block;
+        padding: 4px;
       }
       
       .dropdown-menu a {
         display: block;
-        padding: 0.5rem 1rem;
+        /* padding: 0.5rem 1rem; */
+        padding: 8px;
         color: #1f2937;
         text-decoration: none;
       }
@@ -55,8 +57,8 @@
   </head>
   <body class="font-roboto-sans">
     <!-- Header -->
-    <header class="bg-blue-900">
-      <nav class="container glass-effect max-w-max mx-auto px-6 py-4 ">
+    <header class="bg-blue-900 md:text-center">
+      <nav class="container hidden md:inline-block glass-effect max-w-max mx-auto px-6 py-4 ">
         <div class="flex justify-between gap-19 max-w-max items-center pl-5 pr-2 h-16 border border-white rounded-full">
           <!-- Logo -->
           <div class="flex items-center">
@@ -67,37 +69,37 @@
           <!-- Navigation Items -->
           <div class="flex items-center space-x-8">
             <!-- Option-1 (Direct Route) -->
-            <a href="#option1" class="text-white hover:text-gray-200 transition">
+            <a href="#option1" class="text-white hover:text-gray-200 font-bold transition">
               Option-1
             </a>
             
             <!-- Option-2 (Dropdown) -->
             <div class="relative dropdown">
-              <button class="text-white hover:text-gray-200 transition flex items-center">
+              <button class="text-white hover:text-gray-200 font-bold transition flex items-center">
                 Option-2
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="#option2-1">Sub Option 2.1</a>
-                <a href="#option2-2">Sub Option 2.2</a>
-                <a href="#option2-3">Sub Option 2.3</a>
+              <div class="dropdown-menu overflow-hidden">
+                <a href="#option2-1 " class="m-1 rounded-md">Sub Option 2.1</a>
+                <a href="#option2-2" class="m-1 rounded-md">Sub Option 2.2</a>
+                <a href="#option2-3" class="m-1 rounded-md">Sub Option 2.3</a>
               </div>
             </div>
             
             <!-- Option-3 (Dropdown) -->
             <div class="relative dropdown">
-              <button class="text-white hover:text-gray-200 transition flex items-center">
+              <button class="text-white hover:text-gray-200 font-bold transition flex items-center">
                 Option-3
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div class="dropdown-menu">
-                <a href="#option3-1">Sub Option 3.1</a>
-                <a href="#option3-2">Sub Option 3.2</a>
-                <a href="#option3-3">Sub Option 3.3</a>
+              <div class="dropdown-menu overflow-hidden">
+                <a href="#option3-1" class="m-1 rounded-md">Sub Option 3.1</a>
+                <a href="#option3-2" class="m-1 rounded-md">Sub Option 3.2</a>
+                <a href="#option3-3" class="m-1 rounded-md">Sub Option 3.3</a>
               </div>
             </div>
           </div>
@@ -139,5 +141,39 @@
         </div>
       </div>
     </section>
+
+    <script>
+      // Handle dropdown menu visibility
+      const dropdowns = document.querySelectorAll('.dropdown');
+      let closeTimer = null;
+      
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('button');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        
+        // Show menu on button hover
+        button.addEventListener('mouseenter', () => {
+          clearTimeout(closeTimer);
+          menu.style.display = 'block';
+        });
+        
+        // Hide menu when leaving button
+        button.addEventListener('mouseleave', () => {
+          closeTimer = setTimeout(() => {
+            menu.style.display = 'none';
+          }, 100);
+        });
+        
+        // Keep menu visible when hovering over it
+        menu.addEventListener('mouseenter', () => {
+          clearTimeout(closeTimer);
+        });
+        
+        // Hide menu when leaving menu
+        menu.addEventListener('mouseleave', () => {
+          menu.style.display = 'none';
+        });
+      });
+    </script>
   </body>
 </html>
