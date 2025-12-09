@@ -861,6 +861,11 @@
       padding-block: calc(var(--spacing) * 6);
     }
   }
+  .md\:py-20 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 20);
+    }
+  }
   .md\:text-center {
     @media (width >= 48rem) {
       text-align: center;
