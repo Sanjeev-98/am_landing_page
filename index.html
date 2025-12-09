@@ -53,12 +53,87 @@
         background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) -0.68%, rgba(255, 255, 255, 0.12) 26.74%, rgba(255, 255, 255, 0.13) 69.55%, rgba(255, 255, 255, 0.00) 99.37%, rgba(255, 255, 255, 0.00) 99.37%, rgba(255, 255, 255, 0.00) 99.37%);
         backdrop-filter: blur(98.000278px);
       }
+      
+      /* Mobile menu styles */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: #f8fafc;
+        z-index: 100;
+        overflow-y: auto;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .mobile-menu.active {
+        display: block;
+        left: 0;
+      }
+      
+      .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+      }
+      
+      .mobile-menu-overlay.active {
+        display: block;
+      }
+      
+      .mobile-menu-item {
+        padding: 1rem 1.5rem;
+        color: #1e40af;
+        font-size: 1.125rem;
+        font-weight: 500;
+        border-bottom: 1px solid #e5e7eb;
+        display: block;
+        text-decoration: none;
+      }
+      
+      .mobile-dropdown-content {
+        display: none;
+        background-color: #ffffff;
+      }
+      
+      .mobile-dropdown-content.active {
+        display: block;
+      }
+      
+      .mobile-dropdown-content a {
+        padding: 0.75rem 2.5rem;
+        display: block;
+        color: #64748b;
+        font-size: 1rem;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body class="font-roboto-sans">
     <!-- Header -->
-    <header class="bg-blue-900 md:text-center">
-      <nav class="container hidden md:inline-block glass-effect max-w-max mx-auto px-6 py-4 ">
+    <header class="bg-white md:bg-blue-900 md:text-center">
+      <!-- Mobile Navigation -->
+      <nav class="md:hidden flex items-center justify-between px-6 py-4">
+        <div class="flex items-center">
+          <img src="assets/logo/light_theme.svg" alt="GladMinds" class="h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="text-white text-xl font-bold" style="display:none;">GLADMINDS</div>
+        </div>
+        <button id="hamburger-btn" class="text-white focus:outline-none">
+          <img src="assets/icons/hamburger_icon.svg" alt="Menu" class="w-8 h-8">
+        </button>
+      </nav>
+      
+      <!-- Desktop Navigation -->
+      <nav id="desktop-only-nav" class="container hidden md:inline-block glass-effect max-w-max mx-auto px-6 py-4 ">
         <div class="flex justify-between gap-19 max-w-max items-center pl-5 pr-2 h-16 border border-white rounded-full">
           <!-- Logo -->
           <div class="flex items-center">
@@ -115,6 +190,45 @@
           </div>
         </div>
       </nav>
+      
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+      <div id="mobile-menu" class="mobile-menu">
+        <div>
+          <!-- Option-1 -->
+          <a href="#option1" class="mobile-menu-item">
+            Option-1
+          </a>
+          
+          <!-- Option-2 Dropdown -->
+          <div>
+            <button class="mobile-dropdown-btn mobile-menu-item w-full text-left" data-target="mobile-dropdown-2">
+              Option-2 <svg class="inline" style="width: 12px; height: 12px; vertical-align: middle; margin-left: 4px; transition: transform 0.3s;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobile-dropdown-2" class="mobile-dropdown-content border-b border-gray-200">
+              <a href="#option2-1">Sub Option 2.1</a>
+              <a href="#option2-2">Sub Option 2.2</a>
+              <a href="#option2-3">Sub Option 2.3</a>
+            </div>
+          </div>
+          
+          <!-- Option-3 Dropdown -->
+          <div>
+            <button class="mobile-dropdown-btn mobile-menu-item w-full text-left" data-target="mobile-dropdown-3">
+              Option-3 <svg class="inline" style="width: 12px; height: 12px; vertical-align: middle; margin-left: 4px; transition: transform 0.3s;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobile-dropdown-3" class="mobile-dropdown-content border-b border-gray-200">
+              <a href="#option3-1">Sub Option 3.1</a>
+              <a href="#option3-2">Sub Option 3.2</a>
+              <a href="#option3-3">Sub Option 3.3</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
@@ -143,6 +257,56 @@
     </section>
 
     <script>
+      // Mobile menu toggle
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      
+      hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+      });      
+      mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+      });
+      
+      // Mobile dropdown toggles
+      const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+      mobileDropdownBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          const targetContent = document.getElementById(targetId);
+          const arrow = btn.querySelector('svg');
+          const isActive = targetContent.classList.contains('active');
+          
+          // Close all dropdowns
+          document.querySelectorAll('.mobile-dropdown-content').forEach(content => {
+            content.classList.remove('active');
+          });
+          
+          // Reset all arrows
+          document.querySelectorAll('.mobile-dropdown-btn svg').forEach(svg => {
+            svg.style.transform = 'rotate(0deg)';
+          });
+          
+          // Toggle current dropdown
+          if (!isActive) {
+            targetContent.classList.add('active');
+            arrow.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
+      
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+        });
+      });
+      
       // Handle dropdown menu visibility
       const dropdowns = document.querySelectorAll('.dropdown');
       let closeTimer = null;
