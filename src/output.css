@@ -538,6 +538,9 @@
   .bg-\[\#FFF\] {
     background-color: #FFF;
   }
+  .bg-\[\#fff\] {
+    background-color: #fff;
+  }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
   }
