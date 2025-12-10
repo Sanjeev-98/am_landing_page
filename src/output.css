@@ -292,9 +292,6 @@
   .inline {
     display: inline;
   }
-  .table {
-    display: table;
-  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -316,20 +313,11 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
-  .h-21 {
-    height: calc(var(--spacing) * 21);
-  }
   .h-\[164px\] {
     height: 164px;
   }
   .h-\[218px\] {
     height: 218px;
-  }
-  .h-\[400px\] {
-    height: 400px;
-  }
-  .h-auto {
-    height: auto;
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
@@ -343,17 +331,8 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
-  .w-\[150px\] {
-    width: 150px;
-  }
-  .w-\[156px\] {
-    width: 156px;
-  }
   .w-\[158px\] {
     width: 158px;
-  }
-  .w-\[160px\] {
-    width: 160px;
   }
   .w-\[164px\] {
     width: 164px;
@@ -376,26 +355,14 @@
   .max-w-\[1062px\] {
     max-width: 1062px;
   }
-  .max-w-full {
-    max-width: 100%;
-  }
   .max-w-max {
     max-width: max-content;
-  }
-  .flex-shrink {
-    flex-shrink: 1;
   }
   .flex-shrink-0 {
     flex-shrink: 0;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -520,9 +487,6 @@
   .border-white {
     border-color: var(--color-white);
   }
-  .bg-\[\#\#1A237E\] {
-    background-color: ##1A237E;
-  }
   .bg-\[\#1A237E\] {
     background-color: #1A237E;
   }
@@ -540,9 +504,6 @@
   }
   .bg-\[\#fff\] {
     background-color: #fff;
-  }
-  .bg-blue-600 {
-    background-color: var(--color-blue-600);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -718,16 +679,9 @@
   .text-white {
     color: var(--color-white);
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .shadow-\[0_0_24\.8px_0_rgba\(51\,136\,233\,0\.40\)\] {
     --tw-shadow: 0 0 24.8px 0 var(--tw-shadow-color, rgba(51,136,233,0.40));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -973,11 +927,6 @@
       border-bottom-width: 0px;
     }
   }
-  .md\:p-0 {
-    @media (width >= 48rem) {
-      padding: calc(var(--spacing) * 0);
-    }
-  }
   .md\:p-10 {
     @media (width >= 48rem) {
       padding: calc(var(--spacing) * 10);
@@ -991,11 +940,6 @@
   .md\:px-2 {
     @media (width >= 48rem) {
       padding-inline: calc(var(--spacing) * 2);
-    }
-  }
-  .md\:px-4 {
-    @media (width >= 48rem) {
-      padding-inline: calc(var(--spacing) * 4);
     }
   }
   .md\:px-20 {
@@ -1124,36 +1068,6 @@
       letter-spacing: 0.024px;
     }
   }
-  .md\:text-\[\#FFFFFFE5\] {
-    @media (width >= 48rem) {
-      color: #FFFFFFE5;
-    }
-  }
-  .md\:text-white {
-    @media (width >= 48rem) {
-      color: var(--color-white);
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 64rem) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-  .lg\:grid-cols-6 {
-    @media (width >= 64rem) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-  }
-  .xl\:grid-cols-6 {
-    @media (width >= 80rem) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-  }
-  .\32 xl\:grid-cols-6 {
-    @media (width >= 96rem) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-  }
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -1270,11 +1184,6 @@ body {
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -1356,7 +1265,6 @@ body {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
